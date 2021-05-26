@@ -46,6 +46,20 @@ export default {
       });
     },
   },
+  watch: {
+    notas: {
+      handler(nuevaNota) {
+        localStorage.notas = JSON.stringify(nuevaNota);
+      },
+
+      deep: true,
+    },
+  },
+  mounted() {
+    if (localStorage.notas) {
+      this.notas = JSON.parse(localStorage.notas);
+    }
+  },
 };
 </script>
 
