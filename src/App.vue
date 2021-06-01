@@ -46,20 +46,31 @@ export default {
       });
     },
   },
-  watch: {
-    notas: {
-      handler(nuevaNota) {
-        localStorage.notas = JSON.stringify(nuevaNota);
-      },
+  watch: { 
 
-      deep: true,
-    },
-  },
-  mounted() {
-    if (localStorage.notas) {
-      this.notas = JSON.parse(localStorage.notas);
-    }
-  },
+    notas: { 
+
+      deep: true, 
+
+      handler(nuevaNota) { 
+
+        localStorage.setItem(‘notas’, JSON.stringify(nuevaNota)); 
+
+       } 
+
+     }, 
+
+   }, 
+   
+  mounted(){ 
+
+    if(localStorage.getItem(‘notas’)){ 
+
+      this.notas = JSON.parse(localStorage.getItem(‘notas’)); 
+
+    } 
+
+  }, 
 };
 </script>
 
